@@ -1,0 +1,52 @@
+# depslib dependency file v1.0
+1558043229 source:/home/alumno/1er_Parcial/main.c
+	<stdio.h>
+	<stdlib.h>
+
+1558043366 source:/home/alumno/1er_Parcial/menu.c
+
+1558050112 source:/home/alumno/1er_Parcial/orquesta.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"validaciones.h"
+
+1558050279 /home/alumno/1er_Parcial/orquesta.h
+
+1558048350 source:/home/alumno/1er_Parcial/validaciones.c
+	<stdio.h>
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	"validaciones.h"
+
+1558045296 /home/alumno/1er_Parcial/validaciones.h
+
+1558050279 /home/alumno/1er_Parcial/musico.h
+	"orquesta.h"
+
+1558050279 /home/alumno/1er_Parcial/instrumento.h
+
+1558050828 source:/home/alumno/1er_Parcial/instrumento.c
+	<stdio.h>
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"validaciones.h"
+
+1558050752 source:/home/alumno/1er_Parcial/musico.c
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"validaciones.h"
+
