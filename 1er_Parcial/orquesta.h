@@ -3,19 +3,20 @@
 
 typedef struct
 {
-    int id;
+    int idOrquesta;
     int isEmpty;
-    char nombre[51];
+    char nombreOrquesta[51];
     char lugar[51];
-    int tipo;
+    int tipoOrquesta;
 
 }Orquesta;
 
-static int generarId(void);
+static int generarIdOrquesta(void);
 int inicializarOrquesta(Orquesta *eOrquesta, int cant);
-int buscarElVacio(Orquesta *eOrquesta,int cant,int *indice);
+int buscarElVacioOrquesta(Orquesta *eOrquesta,int cant,int *indice);
 int altaOrquesta(Orquesta *eOrquesta,int cant,int posLibre);
 int buscaIdOrquesta(Orquesta *eOrquesta, int cant, int *idEncontrado);
 int bajaOrquesta(Orquesta *eOrquesta,int cant);
+void imprimirOrquestas(Orquesta *eOrquesta, int cant);
 
 #endif // ORQUESTA_H_INCLUDED

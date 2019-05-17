@@ -9,7 +9,7 @@
 #define VACIO -1
 #define LLENO 1
 
-static int generarId(void)
+static int generarIdInstrumento(void)
 {
     static int id1=0;
     return id1++;
@@ -50,15 +50,15 @@ int altaInstrumento(Instrumento *eInstrumento,int cant,int posLibre)
     char tipoIns[50];
     int auxIns;
 
-    if (!getName(eInstrumento[posLibre].nombreInstrumento,"\n Ingrese nombre del instrumento: ","\n Error, vuelva a ingresar\n\n",2,31,1))
+    if (!getName(eInstrumento[posLibre].nombreInstrumento,"\n Ingrese nombre del instrumento: ","\n Error, vuelva a ingresar\n\n",3,51,1))
     {
-        if (!getInt("\n Ingrese tipo de instrumento: ", "\n Error, vuelva a ingresar\n\n", 1, 3, 1, tipoIns))
+        if (!getInt("\n Ingrese tipo de instrumento(1.CUERDAS 2.VIENTO-MADERA 3.VIENTO-METAL 4.PERCUSION.): ", "\n Error, vuelva a ingresar\n\n", 1, 3, 1, tipoIns))
         {
             auxIns = atoi(tipoIns);
             eInstrumento[posLibre].tipoInstrumento=auxIns;
-            eInstrumento[posLibre].idInstrumento=generarId();
+            eInstrumento[posLibre].idInstrumento=generarIdInstrumento();
+            printf("\n El ID del instrumento es: %d", eInstrumento[posLibre].idInstrumento);
             eInstrumento[posLibre].isEmpty=LLENO;
-            printf("\n El ID de la orquesta es: %d", generarId());
             ret=0;
         }
     }
@@ -69,13 +69,17 @@ int altaInstrumento(Instrumento *eInstrumento,int cant,int posLibre)
     return ret;
 }
 
-int showArrayInt(int* pArray,int len)
-
+int mostrarInstrumentos(Instrumento *eInstrumento,int cant)
 {
     int i;
-    for(i=0;i<len;i++)
+    for(i=0; i<cant; i++)
     {
-        printf("%d\n",pArray[i]);
+        if(eInstrumento[i].isEmpty!=VACIO)
+        {
+            printf("\n Nombre del instrumento:%s \n Tipo de instrumento:%d \n ID del instrumento:%d\n",
+                   eInstrumento[i].nombreInstrumento,
+                   eInstrumento[i].tipoInstrumento,
+                   eInstrumento[i].idInstrumento);
+        }
     }
-    return 0;
 }

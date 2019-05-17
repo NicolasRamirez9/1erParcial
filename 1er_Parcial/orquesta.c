@@ -8,7 +8,7 @@
 #define VACIO -1
 #define LLENO 1
 
-static int generarId(void)
+static int generarIdOrquesta(void)
 {
     static int id1=0;
     return id1++;
@@ -26,7 +26,7 @@ int inicializarOrquesta(Orquesta *eOrquesta, int cant)
     return ret;
 }
 
-int buscarElVacio(Orquesta *eOrquesta,int cant,int *indice)
+int buscarElVacioOrquesta(Orquesta *eOrquesta,int cant,int *indice)
 {
     int ret;
     int i;
@@ -49,17 +49,17 @@ int altaOrquesta(Orquesta *eOrquesta,int cant,int posLibre)
     char tipoOrq[50];
     int auxOrq;
 
-    if (!getName(eOrquesta[posLibre].nombre,"\n Ingrese nombre de la orquesta: ","\n Error, vuelva a ingresar\n\n",2,31,1))
+    if (!getName(eOrquesta[posLibre].nombreOrquesta,"\n Ingrese nombre de la orquesta: ","\n Error, vuelva a ingresar\n\n",2,51,1))
     {
-        if (!getName(eOrquesta[posLibre].lugar,"\n Ingrese lugar de la orquesta: ","\n Error, vuelva a ingresar\n\n",2,31,1))
+        if (!getDireccion(eOrquesta[posLibre].lugar,"\n Ingrese lugar de la orquesta: ","\n Error, vuelva a ingresar\n\n",2,51,1))
         {
-            if (!getInt("\n Ingrese tipo de orquesta: ", "\n Error, vuelva a ingresar\n\n", 1, 3, 1, tipoOrq))
+            if (!getInt("\n Ingrese tipo de orquesta(1.SINFONICA 2.FILAMORNICA 3.CAMARA.): ", "\n Error, vuelva a ingresar\n\n", 1, 3, 1, tipoOrq))
             {
                 auxOrq = atoi(tipoOrq);
-                eOrquesta[posLibre].tipo=auxOrq;
-                eOrquesta[posLibre].id=generarId();
+                eOrquesta[posLibre].tipoOrquesta=auxOrq;
+                eOrquesta[posLibre].idOrquesta=generarIdOrquesta();
+                printf("\n El ID de la orquesta es: %d", eOrquesta[posLibre].idOrquesta);
                 eOrquesta[posLibre].isEmpty=LLENO;
-                printf("\n El ID de la orquesta es: ", generarId());
                 ret=0;
             }
         }
@@ -77,10 +77,10 @@ int buscaIdOrquesta(Orquesta *eOrquesta, int cant, int *idEncontrado)
     int retorno = -1;
     Orquesta auxOrq;
     printf("\n Ingrese id de la orquesta que buscar: ");
-    scanf("%d", &auxOrq.id);
+    scanf("%d", &auxOrq.idOrquesta);
     for(i=0; i < cant; i++)
     {
-        if (eOrquesta[i].id == auxOrq.id)
+        if (eOrquesta[i].idOrquesta == auxOrq.idOrquesta)
         {
             retorno=0;
             *idEncontrado=i;
@@ -100,7 +100,7 @@ int bajaOrquesta(Orquesta *eOrquesta,int cant)
     {
         if(eOrquesta[i].isEmpty!=VACIO)
         {
-            printf("\ Id disponibles: %d",eOrquesta[i].id);
+            printf("\ Id disponibles: %d",eOrquesta[i].idOrquesta);
         }
     }
     if(!buscaIdOrquesta(eOrquesta,cant,&posId1))
@@ -118,4 +118,19 @@ int bajaOrquesta(Orquesta *eOrquesta,int cant)
         }
     }
     return 0;
+}
+
+void imprimirOrquestas(Orquesta *eOrquesta, int cant)
+{
+    int i;
+    for(i=0;i<cant;i++)
+    {
+        if(eOrquesta[i].isEmpty!=VACIO)
+        {
+            printf("\n Nombre de la orquesta:%s \n Lugar de la orquesta:%s\n Tipo de orquesta:%d \n ",
+                   eOrquesta[i].nombreOrquesta,
+                   eOrquesta[i].lugar,
+                   eOrquesta[i].tipoOrquesta);
+        }
+    }
 }

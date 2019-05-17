@@ -110,3 +110,36 @@ int getInt(char *mensaje, char *mensajeError, int minimo, int maximo, int reinte
     }
     return retorno;
 }
+
+int isValidDireccion(char *cadena)
+{
+    int retorno = 1;
+    int i;
+    for(i=0; cadena[i] != '\0'; i++)
+    {
+        if((cadena[i] != ' ') && (cadena[i] < 'a' || cadena[i] > 'z') && (cadena[i] < 'A' || cadena[i] > 'Z') && (cadena[i] < '0' || cadena[i] > '9'))
+        {
+            retorno = 0;
+            break;
+        }
+    }
+    return retorno;
+}
+
+int getDireccion(char *resultado,char *msg,char *msgError,int minimo,int maximo,int reintentos)
+{
+    int retorno =-1;
+    char bufferStr[4000];
+    if(msg != NULL && msgError != NULL && resultado != NULL && reintentos >=0 && maximo > minimo)
+    {
+        if(!getString(msg,msgError,minimo,maximo,reintentos,bufferStr))
+        {
+            if(isValidDireccion(bufferStr))
+            {
+                strncpy(resultado,bufferStr,maximo);
+                retorno = 0;
+            }
+        }
+    }
+    return retorno;
+}
