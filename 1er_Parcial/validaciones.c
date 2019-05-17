@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdio_ext.h>
+///#include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
 #include "orquesta.h"
@@ -16,10 +16,11 @@ int getString(char *msg,char *msgError,int minimo,int maximo,int reintentos,char
         do
         {
             printf("\n%s",msg);
-            __fpurge(stdin);
+            //__fpurge(stdin);
+            fflush(stdin);
             fgets(bufferStr,sizeof(bufferStr),stdin);
            bufferStr[strlen(bufferStr)-1] = '\0';
-          //  scanf("%s",&bufferStr);
+            scanf("%s",&bufferStr); ///CUANDO SE EJECUTE EN LINUX HAY QUE DOCUMENTAR ESTE RENGLON
             if(strlen(bufferStr)>=minimo && strlen(bufferStr)<maximo)
             {
                 strncpy(resultado,bufferStr,maximo);

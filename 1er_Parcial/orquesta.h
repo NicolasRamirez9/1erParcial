@@ -11,11 +11,10 @@ typedef struct
 
 }Orquesta;
 
-static int generarIdOrquesta(void);
 int inicializarOrquesta(Orquesta *eOrquesta, int cant);
 int buscarElVacioOrquesta(Orquesta *eOrquesta,int cant,int *indice);
 int altaOrquesta(Orquesta *eOrquesta,int cant,int posLibre);
-int buscaIdOrquesta(Orquesta *eOrquesta, int cant, int *idEncontrado);
+int buscarIdOrquesta(Orquesta *eOrquesta, int cant, int *idEncontrado);
 int bajaOrquesta(Orquesta *eOrquesta,int cant);
 void imprimirOrquestas(Orquesta *eOrquesta, int cant);
 
