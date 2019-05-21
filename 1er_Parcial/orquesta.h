@@ -11,32 +11,40 @@ typedef struct
 
 }Orquesta;
 
-/**\brief recorre el array
- *\param inicializa el array en VACIO
- * \return retorna 0 si dio bien o -1 si dio mal
+/**\brief recorre array
+ *\param eOrquesta Orquesta*
+ *\param cant int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int inicializarOrquesta(Orquesta *eOrquesta, int cant);
 
-/**\brief recorre el array
- *\param busca VACIO y devuelve la posicion de ese VACIO
- * \return retorna 0 si dio bien o -1 si dio mal
+/**\brief recorre array
+ *\param eOrquesta Orquesta*
+ *\param cant int
+ *\param indice int*
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
-int buscarElVacioOrquesta(Orquesta *eOrquesta,int cant,int *indice);
+int buscarElVacioOrquesta(Orquesta *eOrquesta, int cant, int *indice);
 
 /**\brief ingreso de los campos
- *\param validacion de los campos
- * \return retorna 0 si dio bien o -1 si dio mal
+ *\param eOrquesta Orquesta*
+ *\param cant int
+ *\param posLibre int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
-int altaOrquesta(Orquesta *eOrquesta,int cant,int posLibre);
+int altaOrquesta(Orquesta *eOrquesta, int cant, int posLibre);
 
 /**\brief ingresa un id
- *\param lo busca y devuelva la posicion donde se encuentra
- * \return retorna 0 si dio bien o -1 si dio mal
+ *\param eOrquesta Orquesta*
+ *\param cant int
+ *\param idEncontrado int*
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int buscarIdOrquesta(Orquesta *eOrquesta, int cant, int *idEncontrado);
 
-/**\brief recorre el array de orquestas
- *\param y los muestra
+/**\brief recorre array de orquestas
+ *\param eOrquesta Orquesta*
+ *\param cant int
  * \return void
  */
 void imprimirOrquestas(Orquesta *eOrquesta, int cant);

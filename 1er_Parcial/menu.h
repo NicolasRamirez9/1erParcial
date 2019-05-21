@@ -3,7 +3,7 @@
 
 /**\brief muestra las opciones del menu
  *\param ingresa a la opcion que ejecute el usuario
- * \return retorna 0
+ * \return int Return (0) if Ok
  */
 int funcionMenu();
 

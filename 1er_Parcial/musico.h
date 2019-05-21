@@ -14,50 +14,68 @@ typedef struct
 
 }Musico;
 
-/**\brief recorre el array
- *\param inicializa el array en VACIO
- * \return retorna 0 si dio bien o -1 si dio mal
+/**\brief recorre array
+ *\param eMusico Musico*
+ *\param cant int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int inicializarMusico(Musico *eMusico, int cant);
 
-/**\brief recorre el array
- *\param inicializa el array en VACIO
- * \return retorna 0 si dio bien o -1 si dio mal
+/**\brief recorre array
+ *\param eMusico Musico*
+ *\param cant int
+ *\param indice int*
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int buscarElVacioMusico(Musico *eMusico, int cant, int *indice);
 
 /**\brief ingreso de los campos
- *\param validacion de los campos
- * \return retorna 0 si dio bien o -1 si dio mal
+ *\param eMusico Musico*
+ *\param eOrquesta Orquesta*
+ *\param eInstrumento Instrumento*
+ *\param cant int
+ *\param posLibre int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int altaMusico(Musico *eMusico, Orquesta *eOrquesta, Instrumento *eInstrumento, int cant, int posLibre);
 
 /**\brief ingresa un id
- *\param lo busca y devuelva la posicion donde se encuentra
- * \return retorna 0 si dio bien o -1 si dio mal
+ *\param eMusico Musico*
+ *\param cant int
+ *\param idEncontrado int*
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int buscarIdMusico (Musico *eMusico, int cant, int *idEncontrado);
 
 /**\brief se ingresa id para modificar los campos
- *\param si el id es correcto se modifican y si no sale del programa
- * \return retorna 0 si dio bien o -1 si dio mal
+ *\param eMusico Musico*
+ *\param eOrquesta Orquesta*
+ *\param cant int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int modificarMusico(Musico *eMusico, Orquesta *eOrquesta, int cant);
 
 /**\brief se ingresa id para dar de baja a un musico
- *\param si el id es correcto se da de baja y si no sale del programa
- * \return retorna 0
+ *\param eMusico Musico*
+ *\param cant int
+ * \return int Return (0) if Ok
  */
 int bajaMusico(Musico *eMusico, int cant);
 
 /**\brief se ingresa id para dar de baja a la orquesta y sus musicos
- *\param si el id es correcto se da de baja y si no sale del programa
- * \return retorna 0
+ *\param eOrquesta Orquesta*
+ *\param eMusico Musico*
+ *\param cantUno int
+ *\param cantDos int
+ * \return int Return (0) if Ok
  */
 int bajaOrquesta(Orquesta *eOrquesta, Musico *eMusico, int cantUno, int cantDos);
 
 /**\brief recorre el array de musicos
- *\param y los muestra
+ *\param eMusico Musico*
+ *\param eInstrumento Instrumento*
+ *\param cantUno int
+ *\param cantDos int
  * \return void
  */
 void imprimirMusico(Musico *eMusico, Instrumento *eInstrumento,int cantUno, int cantDos);

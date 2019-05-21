@@ -2,42 +2,65 @@
 #define VALIDACIONES_H_INCLUDED
 
 /**\brief toma por teclado lo que ingrese el usuario
- *\param valida
- * \return retorna 0 si dio bien o -1 si dio mal
+ *\param msg char*
+ *\param msgError char*
+ *\param minimo int
+ *\param maximo int
+ *\param reintentos int
+ *\param resultado char*
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
-int getString(char *msg,char *msgError,int minimo,int maximo,int reintentos,char *resultado);
+int getString(char *msg, char *msgError, int minimo, int maximo, int reintentos, char *resultado);
 
 /**\brief valida que sea letra
- * \return retorna 0 si dio bien o 1 si dio mal
+ *\param cadena char*
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int isValidName(char *cadena);
 
 /**\brief valida
- *\param llama a getString y isValidName y si dieron bien copia el resultado
- * \return retorna 0 dio bien o -1 si dio mal
+ *\param resultado char*
+ *\param msg char*
+ *\param msgError char*
+ *\param minimo int
+ *\param maximo int
+ *\param reintentos int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
-int getName(char *resultado,char *msg,char *msgError,int minimo,int maximo,int reintentos);
+int getName(char *resultado, char *msg, char *msgError, int minimo, int maximo, int reintentos);
 
 /**\brief valida que sea numero
- * \return retorna 0 si dio bien o 1 si dio mal
+ *\param cadena char*
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int isValidint(char* cadena);
 
 /**\brief valida
- *\param llama a getString y isValidFloat y si dieron bien copia el resultado
- * \return retorna 0 dio bien o -1 si dio mal
+ *\param mensaje char*
+ *\param mensajeError char*
+ *\param minimo int
+ *\param maximo int
+ *\param reintentos int
+ *\param resultado char*
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int getInt(char *mensaje, char *mensajeError, int minimo, int maximo, int reintentos, char *resultado);
 
 /**\brief valida que sea un numero y letra
- * \return retorna 0 si dio bien o 1 si dio mal
+ *\param cadena char*
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int isValidDireccion(char *cadena);
 
 /**\brief valida
- *\param llama a getString y isValidDireccion y si dieron bien copia el resultado
- * \return retorna 0 dio bien o -1 si dio mal
+ *\param resultado char*
+ *\param msg char*
+ *\param msgError char*
+ *\param minimo int
+ *\param maximo int
+ *\param reintentos int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
-int getDireccion(char *resultado,char *msg,char *msgError,int minimo,int maximo,int reintentos);
+int getDireccion(char *resultado, char *msg, char *msgError, int minimo, int maximo, int reintentos);
 
 #endif // VALIDACIONES_H_INCLUDED

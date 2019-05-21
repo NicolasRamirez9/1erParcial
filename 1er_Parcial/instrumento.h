@@ -10,32 +10,40 @@ typedef struct
 
 }Instrumento;
 
-/**\brief recorre el array
- *\param inicializa el array en VACIO
- * \return retorna 0 si dio bien o -1 si dio mal
+/**\brief recorre array
+ *\param eInstrumento Instrumento*
+ *\param cant int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int inicializarInstrumento(Instrumento *eInstrumento, int cant);
 
-/**\brief recorre el array
- *\param busca VACIO y devuelve la posicion de ese VACIO
- * \return retorna 0 si dio bien o -1 si dio mal
+/**\brief recorre array
+ *\param eIntrumento Instrumento*
+ *\param cant int
+ *\param indice int*
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int buscarElVacioInstrumento(Instrumento *eInstrumento, int cant, int *indice);
 
 /**\brief ingreso de los campos
- *\param validacion de los campos
- * \return retorna 0 si dio bien o -1 si dio mal
+ *\param eInstrumento Instrumento*
+ *\param cant int
+ *\param posLibre int
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int altaInstrumento(Instrumento *eInstrumento, int cant, int posLibre);
 
 /**\brief ingresa un id
- *\param lo busca y devuelva la posicion donde se encuentra
- * \return retorna 0 si dio bien o -1 si dio mal
+ *\param eInstrumento Instrumento*
+ *\param cant int
+ *\param idEncontrado int*
+ * \return int Return (-1) if Error [Invalid length or NULL pointer] - (0) if Ok
  */
 int buscarIdInstrumento(Instrumento *eInstrumento, int cant, int *idEncontrado);
 
-/**\brief recorre el array de instrumentos
- *\param y los muestra
+/**\brief recorre array de instrumentos
+ *\param eInstrumento Instrumento*
+ *\param cant int
  * \return void
  */
 int imprimirInstrumentos(Instrumento *eInstrumento,int cant);
