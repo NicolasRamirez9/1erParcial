@@ -57,7 +57,7 @@
 	"instrumento.h"
 	"validaciones.h"
 
-1558121450 source:c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\instrumento.c
+1558451619 source:c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\instrumento.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -65,15 +65,16 @@
 	"musico.h"
 	"instrumento.h"
 	"validaciones.h"
+	"menu.h"
 
-1558121263 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\orquesta.h
+1558449000 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\orquesta.h
 
-1558122225 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\musico.h
+1558448400 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\musico.h
 	"instrumento.h"
 
-1558121263 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\instrumento.h
+1558444149 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\instrumento.h
 
-1558101955 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\validaciones.h
+1558449095 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\validaciones.h
 
 1558121184 source:c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\main.c
 	<stdio.h>
@@ -85,7 +86,7 @@
 	"musico.h"
 	"instrumento.h"
 
-1558122889 source:c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\menu.c
+1558452461 source:c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\menu.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -95,7 +96,18 @@
 	"instrumento.h"
 	"validaciones.h"
 
-1558122548 source:c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\musico.c
+1558451508 source:c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\musico.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"validaciones.h"
+	"menu.h"
+
+1558451753 source:c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\orquesta.c
+	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"orquesta.h"
@@ -103,20 +115,12 @@
 	"instrumento.h"
 	"validaciones.h"
 
-1558121184 source:c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\orquesta.c
-	<stdlib.h>
-	<string.h>
-	"orquesta.h"
-	"musico.h"
-	"instrumento.h"
-	"validaciones.h"
-
-1558122604 source:c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\validaciones.c
+1558452051 source:c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\validaciones.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"orquesta.h"
 	"validaciones.h"
 
-1558119998 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\menu.h
+1558446369 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\menu.h
 

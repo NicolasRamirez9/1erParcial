@@ -6,6 +6,7 @@
 #include "musico.h"
 #include "instrumento.h"
 #include "validaciones.h"
+#include "menu.h"
 #define VACIO -1
 #define LLENO 1
 
@@ -39,7 +40,7 @@ int buscarElVacioInstrumento(Instrumento *eInstrumento, int cant, int *indice)
             ret = 0;
             break;
         }
-        ret = -1;
+        ret = VACIO;
     }
     return ret;
 }
@@ -74,7 +75,7 @@ int altaInstrumento(Instrumento *eInstrumento, int cant, int posLibre)
     }
     else
     {
-        ret = 1;
+        ret = LLENO;
     }
     return ret;
 }
@@ -82,7 +83,7 @@ int altaInstrumento(Instrumento *eInstrumento, int cant, int posLibre)
 int buscarIdInstrumento(Instrumento *eInstrumento, int cant, int *idEncontrado)
 {
     int i;
-    int retorno = -1;
+    int retorno = VACIO;
     Instrumento auxIns;
     printf("\n Ingrese id del instrumento: ");
     scanf("%d", &auxIns.idInstrumento);
@@ -105,9 +106,30 @@ int imprimirInstrumentos(Instrumento *eInstrumento,int cant)
     {
         if(eInstrumento[i].isEmpty != VACIO)
         {
-            printf("\n Nombre del instrumento:%s", eInstrumento[i].nombreInstrumento);
-            printf("\n Tipo de instrumento:%d", eInstrumento[i].tipoInstrumento);
-            printf("\n ID del instrumento:%d \n", eInstrumento[i].idInstrumento);
+            if(eInstrumento[i].tipoInstrumento == 1)
+            {
+                printf("\n Nombre del instrumento:%s", eInstrumento[i].nombreInstrumento);
+                printf("\n Cuerdas:%d", eInstrumento[i].tipoInstrumento);
+                printf("\n ID del instrumento:%d \n", eInstrumento[i].idInstrumento);
+            }
+            if(eInstrumento[i].tipoInstrumento == 2)
+            {
+                printf("\n Nombre del instrumento:%s", eInstrumento[i].nombreInstrumento);
+                printf("\n Viento-madera:%d", eInstrumento[i].tipoInstrumento);
+                printf("\n ID del instrumento:%d \n", eInstrumento[i].idInstrumento);
+            }
+            if(eInstrumento[i].tipoInstrumento == 3)
+            {
+                printf("\n Nombre del instrumento:%s", eInstrumento[i].nombreInstrumento);
+                printf("\n Viento-metal:%d", eInstrumento[i].tipoInstrumento);
+                printf("\n ID del instrumento:%d \n", eInstrumento[i].idInstrumento);
+            }
+            if(eInstrumento[i].tipoInstrumento == 4)
+            {
+                printf("\n Nombre del instrumento:%s", eInstrumento[i].nombreInstrumento);
+                printf("\n Percusion:%d", eInstrumento[i].tipoInstrumento);
+                printf("\n ID del instrumento:%d \n", eInstrumento[i].idInstrumento);
+            }
         }
     }
 }

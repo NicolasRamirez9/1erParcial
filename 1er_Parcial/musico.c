@@ -1,3 +1,4 @@
+#include <stdio.h>
 ///#include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
@@ -5,6 +6,7 @@
 #include "musico.h"
 #include "instrumento.h"
 #include "validaciones.h"
+#include "menu.h"
 #define VACIO -1
 #define LLENO 1
 
@@ -38,7 +40,7 @@ int buscarElVacioMusico(Musico *eMusico, int cant, int *indice)
             ret = 0;
             break;
         }
-        ret = -1;
+        ret = VACIO;
     }
     return ret;
 }
@@ -95,6 +97,7 @@ int altaMusico(Musico *eMusico, Orquesta *eOrquesta, Instrumento *eInstrumento, 
                         if(!buscarIdInstrumento(eInstrumento, cant, &pos))
                         {
                             printf("\n Se encontro el ID del instrumento.");
+
                             if(!getInt("\n Ingrese el ID del instrumento: ",
                                        "\n Error, vuelva a ingresar\n\n",
                                        0,
@@ -120,7 +123,7 @@ int altaMusico(Musico *eMusico, Orquesta *eOrquesta, Instrumento *eInstrumento, 
 
     else
     {
-        ret = 1;
+        ret = LLENO;
     }
     return ret;
 }
@@ -128,11 +131,11 @@ int altaMusico(Musico *eMusico, Orquesta *eOrquesta, Instrumento *eInstrumento, 
 int buscarIdMusico (Musico *eMusico, int cant, int *idEncontrado)
 {
     int i;
-    int retorno = -1;
+    int retorno = VACIO;
     Musico auxMus;
     printf("\n Ingrese ID del musico: ");
     scanf("%d", &auxMus.idMusico);
-    for(i=0; i < cant; i++)
+    for(i=0; i< cant; i++)
     {
         if (eMusico[i].idMusico == auxMus.idMusico)
         {
@@ -148,7 +151,7 @@ int modificarMusico(Musico *eMusico, Orquesta *eOrquesta,int cant)
 {
     int aceptar;
     char mod;
-    int ret = -1;
+    int ret = VACIO;
     int posId2;
     int i;
     int posPrueba=0;
@@ -172,10 +175,16 @@ int modificarMusico(Musico *eMusico, Orquesta *eOrquesta,int cant)
         do
         {
             system("cls"); ///system("clear");
-            printf("\n------------------\n");
-            printf("\n- 1) EDAD           -\n");
-            printf("\n- 2) ID DE ORQUESTA -\n");
-            printf("\n------------------\n");
+            printf("\n ***************************** \n");
+
+            printf("\n *    1.EDAD                 * \n");
+
+            printf("\n *                           * \n");
+
+            printf("\n *    2.ID DE ORQUESTA       * \n");
+
+            printf("\n ***************************** \n");
+
             printf("\n Ingrese el campo que desea modificar: ");
             scanf("%d", &aceptar);
             system("cls"); ///system("clear");
@@ -185,20 +194,21 @@ int modificarMusico(Musico *eMusico, Orquesta *eOrquesta,int cant)
             case 1:
                 getInt("\n Ingrese edad del musico: ",
                        "\n Error, vuelva a intentarlo.",
-                       1,
-                       50,
+                       0,
+                       3,
                        1,
                        edadMus);
                 auxEd = atoi(edadMus);
                 eMusico[posPrueba].edad = auxEd;
                 break;
+
             case 2:
                     if(!buscarIdOrquesta(eOrquesta, cant, &pos))
                     {
                         getInt("\n Modifique el ID de la orquesta: ",
                                "\n Error, vuelva a intentarlo.",
                                0,
-                               20,
+                               3,
                                1,
                                idOrq);
                         auxOrq = atoi(idOrq);
@@ -244,6 +254,45 @@ int bajaMusico(Musico *eMusico,int cant)
         {
             printf("\n Se ha dado de baja esta orquesta.");
             eMusico[posBaja].isEmpty = VACIO;
+        }
+        else
+        {
+            printf("\n Vuelva al menu.");
+        }
+    }
+    return 0;
+}
+
+int bajaOrquesta(Orquesta *eOrquesta, Musico *eMusico, int cantUno, int cantDos)
+{
+    int posIdUno;
+    char resp;
+    int posBaja = 0;
+    int i;
+    int j;
+
+    for(i=0; i<cantUno; i++)
+    {
+        if(eOrquesta[i].isEmpty != VACIO)
+        {
+            printf("\n ID disponibles: %d\n", eOrquesta[i].idOrquesta);
+        }
+    }
+    if(!buscarIdOrquesta(eOrquesta, cantUno, &posIdUno))
+    {
+        printf("\n Esta seguro que quiere dar de baja ese ID?: \n s|n: ");
+        scanf("%s",&resp);
+        if(resp=='s')
+        {
+            for(j=0; j<cantDos; j++)
+            {
+                if(eMusico[j].idOrquesta == eOrquesta[i].idOrquesta)
+                {
+                    eOrquesta[posBaja].isEmpty = VACIO;
+                    eMusico[j].isEmpty = VACIO;
+                }
+            }
+            printf("\n Se ha dado de baja esta orquesta y a los musicos que la componen. \n");
         }
         else
         {

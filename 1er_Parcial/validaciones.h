@@ -29,4 +29,15 @@ int isValidint(char* cadena);
  */
 int getInt(char *mensaje, char *mensajeError, int minimo, int maximo, int reintentos, char *resultado);
 
+/**\brief valida que sea un numero y letra
+ * \return retorna 0 si dio bien o 1 si dio mal
+ */
+int isValidDireccion(char *cadena);
+
+/**\brief valida
+ *\param llama a getString y isValidDireccion y si dieron bien copia el resultado
+ * \return retorna 0 dio bien o -1 si dio mal
+ */
+int getDireccion(char *resultado,char *msg,char *msgError,int minimo,int maximo,int reintentos);
+
 #endif // VALIDACIONES_H_INCLUDED

@@ -20,6 +20,9 @@ int funcionMenu(void)
     int posLibreOrquesta;
     int posLibreMusico;
     int posLibreInstrumento;
+    int flagUno = 0;
+    int flagDos = 0;
+    int flagTres = 0;
 
     Orquesta eOrquesta[ORQUESTA];
     Musico eMusico[MUSICOS];
@@ -35,7 +38,7 @@ int funcionMenu(void)
     strcpy(eOrquesta[0].lugar, "avellaneda");
     eOrquesta[0].idOrquesta = 0;
     eOrquesta[0].isEmpty = LLENO;
-    eOrquesta[0].tipoOrquesta = 1;
+    eOrquesta[0].tipoOrquesta = LLENO;
 
     strcpy(eMusico[0].nombreMusico, "nico");
     strcpy(eMusico[0].apellidoMusico, "ramirez");
@@ -43,33 +46,47 @@ int funcionMenu(void)
     eMusico[0].isEmpty = LLENO;
     eMusico[0].idInstrumento = 0;
 
-    strcpy(eMusico[1].nombreMusico, "raul");
-    strcpy(eMusico[1].apellidoMusico, "dominguez");
-    eMusico[1].idMusico = 1;
-    eMusico[1].isEmpty = LLENO;
+    strcpy(eMusico[LLENO].nombreMusico, "raul");
+    strcpy(eMusico[LLENO].apellidoMusico, "dominguez");
+    eMusico[LLENO].idMusico = LLENO;
+    eMusico[LLENO].isEmpty = LLENO;
 
     strcpy(eInstrumento[0].nombreInstrumento, "guitarra");
     eInstrumento[0].tipoInstrumento = 2;
     eInstrumento[0].idInstrumento = 0;
     eInstrumento[0].isEmpty = LLENO;
 
-    strcpy(eInstrumento[1].nombreInstrumento, "flauta");
-    eInstrumento[1].tipoInstrumento = 2;
-    eInstrumento[1].idInstrumento = 0;
-    eInstrumento[1].isEmpty = LLENO;
+    strcpy(eInstrumento[LLENO].nombreInstrumento, "flauta");
+    eInstrumento[LLENO].tipoInstrumento = 2;
+    eInstrumento[LLENO].idInstrumento = 0;
+    eInstrumento[LLENO].isEmpty = LLENO;
     //**********************************************
     do
     {
-        printf(":::::::::::::::::::::::::::::::::\n");
-        printf(":          ORQUESTA             :\n");
-        printf(": 1) ALTA             2)BAJA    :\n");
-        printf(":          3)IMPRIMIR           :\n");
-        printf(":          MUSICOS              :\n");
-        printf(": 4) ALTA        5)MODIFICACION :\n");
-        printf(": 6)BAJA         7)IMPRIMIR     :\n");
-        printf(":          INSTRUMENTOS         :\n");
-        printf(": 8) ALTA            9)IMPRIMIR :\n");
-        printf(":::::::::::::::::::::::::::::::::\n");
+        printf(" ***********************************************************   \n");
+
+        printf("\n *                    ORQUESTA                             * \n");
+
+        printf("\n *           1.ALTA             2.BAJA                     * \n");
+
+        printf("\n *                   3.IMPRIMIR                            * \n");
+
+        printf("\n *********************************************************** \n");
+
+        printf("\n *                    MUSICOS                              * \n");
+
+        printf("\n *           4.ALTA         5.MODIFICACION                 * \n");
+
+        printf("\n *           6.BAJA         7.IMPRIMIR                     * \n");
+
+        printf("\n *********************************************************** \n");
+
+        printf("\n *                  INSTRUMENTOS                           * \n");
+
+        printf("\n *           8. ALTA            9.IMPRIMIR                 * \n");
+
+        printf("\n *********************************************************** \n");
+
         printf("\n Elija una opcion: ");
         scanf("%d", &opcion);
         system("cls");
@@ -80,7 +97,7 @@ int funcionMenu(void)
         case 1:
             if(!buscarElVacioOrquesta(eOrquesta, ORQUESTA, &posLibreOrquesta))
             {
-                //  flag1=1;
+                flagUno = LLENO;
                 switch(altaOrquesta(eOrquesta, ORQUESTA, posLibreOrquesta))
                 {
                 case 0:
@@ -99,50 +116,93 @@ int funcionMenu(void)
             break;
 
         case 2:
-            bajaOrquesta(eOrquesta, ORQUESTA);
+            if(flagUno == 0)
+            {
+                printf("\n No hay datos para dar de baja, se debe cargar la orquesta primero. \n");
+            }
+            else
+            {
+                bajaOrquesta(eOrquesta, eMusico, ORQUESTA, MUSICOS);
+            }
             break;
 
         case 3:
-            imprimirOrquestas(eOrquesta, ORQUESTA);
+            if(flagUno == 0)
+            {
+                printf("\n No hay datos para modificar, se debe cargar la orquesta primero. \n");
+            }
+            else
+            {
+                imprimirOrquestas(eOrquesta, ORQUESTA);
+            }
             break;
 
         case 4:
-            if(!buscarElVacioMusico(eMusico, MUSICOS, &posLibreMusico))
+            if(flagDos != 0 && flagUno != 0)
             {
-                //   flag1=1;
-                switch(altaMusico(eMusico, eOrquesta, eInstrumento, MUSICOS, posLibreMusico))
+                if(!buscarElVacioMusico(eMusico, MUSICOS, &posLibreMusico))
                 {
-                case 0:
-                    printf("\n Dato ingresado correctamente.\n\n");
-                    break;
+                    flagTres = LLENO;
+                    switch(altaMusico(eMusico, eOrquesta, eInstrumento, MUSICOS, posLibreMusico))
+                    {
+                        case 0:
+                            printf("\n Dato ingresado correctamente.\n\n");
+                            break;
 
-                case 1:
-                    printf("\n Dato ingresado incorrectamente.\n\n");
-                    break;
+                        case 1:
+                            printf("\n Dato ingresado incorrectamente.\n\n");
+                            break;
+                    }
+                }
+                else
+                {
+                    printf("\n Lleno.");
                 }
             }
             else
             {
-                printf("\n Lleno.");
+                printf("\n Primero se debe ingresar la orquesta y instrumento. \n");
             }
             break;
 
         case 5:
-            modificarMusico(eMusico, eOrquesta, MUSICOS);
+            if(flagTres == 0)
+            {
+                printf("\n No hay datos para modificar, se debe cargar el musico primero. \n");
+            }
+            else
+            {
+                modificarMusico(eMusico, eOrquesta, MUSICOS);
+            }
             break;
 
         case 6:
-            bajaMusico(eMusico, MUSICOS);
+            if(flagTres == 0)
+            {
+                printf("\n No hay datos para dar de baja, se debe cargar el musico primero. \n");
+            }
+            else
+            {
+                bajaMusico(eMusico, MUSICOS);
+            }
             break;
 
+    inicializarOrquesta(eOrquesta, ORQUESTA);
         case 7:
-            imprimirMusico(eMusico, eInstrumento, MUSICOS, INSTRUMENTO);
+            if(flagTres == 0)
+            {
+                printf("\n No hay datos para imprimir por pantalla, se debe cargar el musico primero. \n");
+            }
+            else
+            {
+                imprimirMusico(eMusico, eInstrumento, MUSICOS, INSTRUMENTO);
+            }
             break;
 
         case 8:
             if(!buscarElVacioInstrumento(eInstrumento, INSTRUMENTO, &posLibreInstrumento))
             {
-                //  flag1=1;
+                flagDos = LLENO;
                 switch(altaInstrumento(eInstrumento, INSTRUMENTO, posLibreInstrumento))
                 {
                 case 0:
@@ -161,7 +221,14 @@ int funcionMenu(void)
             break;
 
         case 9:
-            imprimirInstrumentos(eInstrumento, INSTRUMENTO);
+            if(flagDos == 0)
+            {
+                printf("\n No hay datos para imprimir por pantalla, se debe cargar el instrumento primero. \n");
+            }
+            else
+            {
+                imprimirInstrumentos(eInstrumento, INSTRUMENTO);
+            }
             break;
 
         }

@@ -1,3 +1,4 @@
+#include <stdio.h>
 ///#include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
@@ -38,7 +39,7 @@ int buscarElVacioOrquesta(Orquesta *eOrquesta, int cant, int *indice)
             ret = 0;
             break;
         }
-        ret = -1;
+        ret = VACIO;
     }
     return ret;
 }
@@ -81,7 +82,7 @@ int altaOrquesta(Orquesta *eOrquesta, int cant, int posLibre)
     }
     else
     {
-        ret = 1;
+        ret = LLENO;
     }
     return ret;
 }
@@ -89,11 +90,11 @@ int altaOrquesta(Orquesta *eOrquesta, int cant, int posLibre)
 int buscarIdOrquesta(Orquesta *eOrquesta, int cant, int *idEncontrado)
 {
     int i;
-    int retorno = -1;
+    int retorno = VACIO;
     Orquesta auxOrq;
     printf("\n Ingrese id de la orquesta que buscar: ");
     scanf("%d", &auxOrq.idOrquesta);
-    for(i=0; i < cant; i++)
+    for(i=0; i<cant; i++)
     {
         if (eOrquesta[i].idOrquesta == auxOrq.idOrquesta)
         {
@@ -103,36 +104,6 @@ int buscarIdOrquesta(Orquesta *eOrquesta, int cant, int *idEncontrado)
         }
     }
     return retorno;
-}
-
-int bajaOrquesta(Orquesta *eOrquesta, int cant)
-{
-    int posId1;
-    char resp;
-    int posBaja = 0;
-    int i;
-    for(i=0; i<cant; i++)
-    {
-        if(eOrquesta[i].isEmpty != VACIO)
-        {
-            printf("\ ID disponibles: %d", eOrquesta[i].idOrquesta);
-        }
-    }
-    if(!buscarIdOrquesta(eOrquesta, cant, &posId1))
-    {
-        printf("\n Esta seguro que quiere dar de baja ese ID? \n s|n: ");
-        scanf("%s", &resp);
-        if(resp == 's')
-        {
-            printf("\n Se ha dado de baja este autor.");
-            eOrquesta[posBaja].isEmpty = VACIO;
-        }
-        else
-        {
-            printf("\n Vuelva al menu.");
-        }
-    }
-    return 0;
 }
 
 void imprimirOrquestas(Orquesta *eOrquesta, int cant)

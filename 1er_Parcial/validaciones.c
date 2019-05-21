@@ -7,9 +7,9 @@
 #define VACIO -1
 #define LLENO 1
 
-int getString(char *msg,char *msgError,int minimo,int maximo,int reintentos,char *resultado)
+int getString(char *msg, char *msgError, int minimo, int maximo, int reintentos, char *resultado)
 {
-    int retorno =-1;
+    int retorno = VACIO;
     char bufferStr[400];
     if(msg != NULL && msgError != NULL && resultado != NULL && reintentos >=0 && maximo > minimo)
     {
@@ -19,29 +19,29 @@ int getString(char *msg,char *msgError,int minimo,int maximo,int reintentos,char
             //__fpurge(stdin);
             fflush(stdin);
             fgets(bufferStr,sizeof(bufferStr),stdin);
-           bufferStr[strlen(bufferStr)-1] = '\0';
-            scanf("%s",&bufferStr); ///CUANDO SE EJECUTE EN LINUX HAY QUE DOCUMENTAR ESTE RENGLON
-            if(strlen(bufferStr)>=minimo && strlen(bufferStr)<maximo)
+            bufferStr[strlen(bufferStr)-1] = '\0';
+            //scanf("%s",&bufferStr); ///CUANDO SE EJECUTE EN LINUX HAY QUE DOCUMENTAR ESTE RENGLON
+            if(strlen(bufferStr) >= minimo && strlen(bufferStr) < maximo)
             {
-                strncpy(resultado,bufferStr,maximo);
+                strncpy(resultado, bufferStr, maximo);
                 retorno = 0;
                 break;
             }
             else
             {
-                printf("\n%s",msgError);
+                printf("\n%s", msgError);
             }
             reintentos --;
         }
-        while(reintentos>0);
+        while(reintentos > 0);
     }
     return retorno;
 }
 int isValidName(char *cadena)
 {
-    int retorno = 1;
+    int retorno = LLENO;
     int i;
-    for(i=0; cadena[i] != '\0'; i++)
+    for(i=0; cadena[i]!='\0'; i++)
     {
         if((cadena[i] > 'Z' || cadena[i] < 'A') && (cadena[i] > 'z' || cadena[i] < 'a'))
         {
@@ -51,19 +51,24 @@ int isValidName(char *cadena)
     }
     return retorno;
 }
-int getName(char *resultado,char *msg,char *msgError,int minimo,int maximo,int reintentos)
+int getName(char *resultado, char *msg, char *msgError, int minimo, int maximo, int reintentos)
 {
-    int retorno =-1;
+    int retorno = VACIO;
     char bufferStr[4000];
-    while(retorno ==-1)
+    while(retorno == VACIO)
     {
         if(msg != NULL && msgError != NULL && resultado != NULL && reintentos >=0 && maximo > minimo)
         {
-            if(!getString(msg,msgError,minimo,maximo,reintentos,bufferStr))
+            if(!getString(msg,
+                          msgError,
+                          minimo,
+                          maximo,
+                          reintentos,
+                          bufferStr))
             {
                 if(isValidName(bufferStr))
                 {
-                    strncpy(resultado,bufferStr,maximo);
+                    strncpy(resultado, bufferStr, maximo);
                     retorno = 0;
                     break;
                 }
@@ -80,7 +85,7 @@ int getName(char *resultado,char *msg,char *msgError,int minimo,int maximo,int r
 
 int isValidint(char* cadena)
 {
-    int retorno = 1;
+    int retorno = LLENO;
     int i;
     for(i=0; cadena[i] != '\0'; i++)
     {
@@ -95,18 +100,23 @@ int isValidint(char* cadena)
 int getInt(char *mensaje, char *mensajeError, int minimo, int maximo, int reintentos, char *resultado)
 {
    char bufferStr[20];
-    int retorno=-1;
-    while(retorno==-1 && reintentos>0)
+    int retorno = VACIO;
+    while(retorno == VACIO && reintentos > 0)
     {
-        if(!getString(mensaje,mensajeError,minimo,maximo,reintentos,bufferStr)&&(resultado!=NULL)&&(isValidint(bufferStr)))
+        if(!getString(mensaje,
+                      mensajeError,
+                      minimo,
+                      maximo,
+                      reintentos,
+                      bufferStr)&&(resultado!=NULL)&&(isValidint(bufferStr)))
         {
-            strncpy(resultado,bufferStr,sizeof(bufferStr));
+            strncpy(resultado, bufferStr, sizeof(bufferStr));
             retorno=0;
         }
         else
         {
-            printf("%s",mensajeError);
-            retorno=-1;
+            printf("%s", mensajeError);
+            retorno=VACIO;
         }
     }
     return retorno;
@@ -114,7 +124,7 @@ int getInt(char *mensaje, char *mensajeError, int minimo, int maximo, int reinte
 
 int isValidDireccion(char *cadena)
 {
-    int retorno = 1;
+    int retorno = LLENO;
     int i;
     for(i=0; cadena[i] != '\0'; i++)
     {
@@ -127,17 +137,22 @@ int isValidDireccion(char *cadena)
     return retorno;
 }
 
-int getDireccion(char *resultado,char *msg,char *msgError,int minimo,int maximo,int reintentos)
+int getDireccion(char *resultado, char *msg, char *msgError, int minimo, int maximo, int reintentos)
 {
-    int retorno =-1;
+    int retorno = VACIO;
     char bufferStr[4000];
     if(msg != NULL && msgError != NULL && resultado != NULL && reintentos >=0 && maximo > minimo)
     {
-        if(!getString(msg,msgError,minimo,maximo,reintentos,bufferStr))
+        if(!getString(msg,
+                      msgError,
+                      minimo,
+                      maximo,
+                      reintentos,
+                      bufferStr))
         {
             if(isValidDireccion(bufferStr))
             {
-                strncpy(resultado,bufferStr,maximo);
+                strncpy(resultado, bufferStr, maximo);
                 retorno = 0;
             }
         }
