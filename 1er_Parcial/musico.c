@@ -1,5 +1,5 @@
 #include <stdio.h>
-///#include <stdio_ext.h>
+#include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
 #include "orquesta.h"
@@ -174,7 +174,7 @@ int modificarMusico(Musico *eMusico, Orquesta *eOrquesta,int cant)
     {
         do
         {
-            system("cls"); ///system("clear");
+            system("clear");
             printf("\n ***************************** \n");
 
             printf("\n *    1.EDAD                 * \n");
@@ -187,7 +187,7 @@ int modificarMusico(Musico *eMusico, Orquesta *eOrquesta,int cant)
 
             printf("\n Ingrese el campo que desea modificar: ");
             scanf("%d", &aceptar);
-            system("cls"); ///system("clear");
+            system("clear");
 
             switch(aceptar)
             {
@@ -218,7 +218,7 @@ int modificarMusico(Musico *eMusico, Orquesta *eOrquesta,int cant)
             }
             printf("\n Quiere modificar otro campo?\n s/para continuar n/para salir: ");
             scanf("%s", &mod);
-            system("cls"); ///system("clear");
+            system("clear");
         }
         while(mod == 's');
         ret = 0;

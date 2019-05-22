@@ -3,6 +3,8 @@
 	<stdio.h>
 	<stdlib.h>
 
+1558451508 
+
 1558051632 source:/home/alumno/1er_Parcial/menu.c
 	<stdio_ext.h>
 	<stdlib.h>
@@ -11,6 +13,8 @@
 	"musico.h"
 	"instrumento.h"
 	"validaciones.h"
+
+1558452051 nes.h"
 
 1558053671 source:/home/alumno/1er_Parcial/orquesta.c
 	<stdio_ext.h>
@@ -35,6 +39,8 @@
 
 1558050279 /home/alumno/1er_Parcial/musico.h
 	"orquesta.h"
+
+1558050279 h"
 
 1558053196 /home/alumno/1er_Parcial/instrumento.h
 
@@ -71,6 +77,8 @@
 
 1558460981 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\musico.h
 	"instrumento.h"
+
+1558121184 to.h"
 
 1558459405 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\instrumento.h
 
@@ -123,4 +131,90 @@
 	"validaciones.h"
 
 1558459689 c:\users\e5eee78\desktop\1erparcial-master\1erparcial-master\1er_parcial\menu.h
+
+1558476117 source:/home/alumno/1erParcial/1er_Parcial/main.c
+	<stdio.h>
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"menu.h"
+	"orquesta.h"
+	"validaciones.h"
+	"musico.h"
+	"instrumento.h"
+
+1558474835 /home/alumno/1erParcial/1er_Parcial/menu.h
+
+1558474835 /home/alumno/1erParcial/1er_Parcial/orquesta.h
+
+1558474835 /home/alumno/1erParcial/1er_Parcial/validaciones.h
+
+1558474835 /home/alumno/1erParcial/1er_Parcial/musico.h
+	"instrumento.h"
+
+1558474835 /home/alumno/1erParcial/1er_Parcial/instrumento.h
+
+1558477556 source:/home/alumno/1erParcial/1er_Parcial/orquesta.c
+	<stdio.h>
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"validaciones.h"
+
+1558478174 source:/home/alumno/1erParcial/1er_Parcial/validaciones.c
+	<stdio.h>
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	"validaciones.h"
+
+1558482880 source:/home/alumno/1erParcial/1er_Parcial/informes.c
+	<stdio.h>
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"validaciones.h"
+
+1558478535 source:/home/alumno/1erParcial/1er_Parcial/instrumento.c
+	<stdio.h>
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"validaciones.h"
+	"menu.h"
+
+1558479377 source:/home/alumno/1erParcial/1er_Parcial/musico.c
+	<stdio.h>
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"validaciones.h"
+	"menu.h"
+
+1558483918 source:/home/alumno/1erParcial/1er_Parcial/menu.c
+	<stdio.h>
+	<stdio_ext.h>
+	<stdlib.h>
+	<string.h>
+	"menu.h"
+	"orquesta.h"
+	"musico.h"
+	"instrumento.h"
+	"validaciones.h"
+	"informes.h"
+
+1558481603 /home/alumno/1erParcial/1er_Parcial/informes.h
 

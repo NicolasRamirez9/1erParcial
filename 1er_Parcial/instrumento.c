@@ -1,5 +1,5 @@
 #include <stdio.h>
-///#include <stdio_ext.h>
+#include <stdio_ext.h>
 #include <stdlib.h>
 #include <string.h>
 #include "orquesta.h"
@@ -129,6 +129,10 @@ int imprimirInstrumentos(Instrumento *eInstrumento,int cant)
                 printf("\n Nombre del instrumento:%s", eInstrumento[i].nombreInstrumento);
                 printf("\n Percusion:%d", eInstrumento[i].tipoInstrumento);
                 printf("\n ID del instrumento:%d \n", eInstrumento[i].idInstrumento);
+            }
+            else
+            {
+                printf("\n Ingrese una opcion correcta. \n");
             }
         }
     }
